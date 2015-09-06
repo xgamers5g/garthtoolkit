@@ -1,5 +1,5 @@
 <?php
-namespace Auth\Tools;
+namespace GarthFramework\Tools\Request;
 
 /**
  * ToolCurl
@@ -62,7 +62,7 @@ class ToolCurl
 
 		//CLI模式要創建Cookie
 		if (php_sapi_name() == "cli") {
-			$cookie_file='./mycookie.tmp';
+			$cookie_file= BASE_DIR.'/mycookie.tmp';
 			if (!file_exists($cookie_file)) {
 				$fp = fopen($cookie_file, 'w+');
 				fclose($fp);
@@ -170,9 +170,10 @@ class ToolCurl
 	public function __destruct(){
 
 		if (php_sapi_name() == "cli") {
-			$cookie_file='./mycookie.tmp';
-			chmod($cookie_file, 0777);
-			unlink($cookie_file);
+			$cookie_file = BASE_DIR.'/mycookie.tmp';
+			if(file_exists($cookie_file)){
+				unlink($cookie_file);
+			}
 		}
 
 		self::$ci = null;

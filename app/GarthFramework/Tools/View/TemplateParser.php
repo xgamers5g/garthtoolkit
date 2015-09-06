@@ -1,7 +1,9 @@
 <?php
 namespace GarthFramework\Tools\View;
 /**
- * ptt借來用的純php樣版解析器
+ * 導入twig
+ * getInstance取view物件
+ * method view使用twig輸出樣板
  */
 class TemplateParser{
 
@@ -13,6 +15,8 @@ class TemplateParser{
 
     public static function getInstance(){
 
+        /* 定義twig檔案讀取器 */
+        
         if(self::$instance){
             return self::$instance;
         }
@@ -22,24 +26,19 @@ class TemplateParser{
 
     }
 
-    public function view($source_page, $variable = '', $return = FALSE){
+    public function view($fileLocation, $variable = '', $return = FALSE){
 
         $variable = $this->_check_array($variable);
+         
+        $twig = new \Twig_Environment(
+            (new \Twig_Loader_Filesystem(dirname($fileLocation)))
+        );
 
-        foreach($variable as $key => $value){
-            $$key = $value;
-        }
+        return $twig->render(
+            basename($fileLocation),
+            $variable
+        );
         
-        if($return){
-            ob_start();
-                eval("?>".file_get_contents($source_page)."<?php");
-                $buffer_tmp = ob_get_contents();
-            ob_end_clean();
-            return $buffer_tmp;
-        }
-        else{
-            eval("?>".file_get_contents($source_page)."<?php");
-        }
     }
 
     private function _check_array($variable){

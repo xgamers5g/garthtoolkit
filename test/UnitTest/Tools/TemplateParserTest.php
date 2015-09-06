@@ -12,8 +12,6 @@ Class TemplateParserTest extends PHPUnit_Framework_TestCase{
 	//藕合測試
 	public function testView(){
 
-		$db = $this->getMock('\Tools\MockDB', array(), array(), '', false, true, true);
-
 		$templateData = array(
 			'title'	=> 'hi',
 			'body'	=> '123'
@@ -27,13 +25,13 @@ Class TemplateParserTest extends PHPUnit_Framework_TestCase{
 		$assertData .= '<title>hi</title>'."\n";
 		$assertData .= '</head>'."\n";
 		$assertData .= '<body>'."\n";
-		$assertData .= '123';
+		$assertData .= '123'."\n";
 		$assertData .= '</body>'."\n";
-		$assertData .= '</html>'."\n";
-		$assertData .= '<?php';
+		$assertData .= '</html>';
 
 		$obj = \GarthFramework\Tools\View\TemplateParser::getInstance();
-		$res = $obj->view(dirname(__FILE__).'/testTemplate.php', $templateData, true);
+		$res = $obj->view(dirname(__FILE__).'/testTemplate.tpl', $templateData, true);
+		//print_r($res);
 		$this->assertEquals($assertData, $res);
 	}
 

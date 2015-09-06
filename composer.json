@@ -14,7 +14,8 @@
         }
     ],
     "require-dev": {
-        "garth/Router": "feature/phparray-dev"
+        "garth/Router": "feature/phparray-dev",
+        "twig/twig": "1.x-dev"
     },
     "autoload": {
         "psr-4": {

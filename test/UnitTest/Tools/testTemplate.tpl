@@ -3,9 +3,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta http-equiv="Content-Language" content="zh-tw" />
-<title><?=$title?></title>
+<title>{{title}}</title>
 </head>
 <body>
-<?=$body?>
+{{body}}
 </body>
 </html>

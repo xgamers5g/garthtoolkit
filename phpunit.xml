@@ -7,6 +7,9 @@
          colors="true">
 <testsuites>
   <testsuite name="system">
+    <file>test/UnitTest/System/CoreTest.php</file>
+    <file>test/UnitTest/System/ConfigHandlerTest.php</file>
+    <file>test/UnitTest/System/LangHandlerTest.php</file>
     <file>test/UnitTest/Tools/TemplateParserTest.php</file>
     <file>test/UnitTest/Tools/PostHandlerTest.php</file>
     <file>test/UnitTest/Tools/SessionHandlerTest.php</file>
