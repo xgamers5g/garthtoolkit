@@ -6,6 +6,5 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Router\\' => array($vendorDir . '/garth/Router/src/Router'),
-    'GarthFramework\\' => array($baseDir . '/app/GarthFreamwork'),
+    'GarthFramework\\' => array($baseDir . '/app/GarthFramework'),
 );

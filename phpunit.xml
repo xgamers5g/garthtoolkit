@@ -3,14 +3,13 @@
          xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.0/phpunit.xsd"
          backupGlobals="true"
          backupStaticAttributes="true"
-         bootstrap="unittest/entry.php"
+         bootstrap="test/entry.php"
          colors="true">
 <testsuites>
   <testsuite name="system">
-    <file>unittest/CustomerAdmin/UnitTest/System/CoreTest.php</file>
-    <file>unittest/CustomerAdmin/UnitTest/Model/AdminCommunityModelTest.php</file>
-    <file>unittest/CustomerAdmin/UnitTest/Tools/TemplateParserTest.php</file>
-    <file>unittest/CustoemrAdmin/UnitTest/Tools/PostHandlerTest.php</file>
+    <file>test/UnitTest/Tools/TemplateParserTest.php</file>
+    <file>test/UnitTest/Tools/PostHandlerTest.php</file>
+    <file>test/UnitTest/Tools/SessionHandlerTest.php</file>
   </testsuite>
 </testsuites>
 </phpunit>

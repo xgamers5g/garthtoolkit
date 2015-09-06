@@ -1,5 +1,5 @@
 <?php
-namespace GarthFramework\Tools;
+namespace GarthFramework\Tools\Database;
 
 class MockDB{
 	public function query(){}

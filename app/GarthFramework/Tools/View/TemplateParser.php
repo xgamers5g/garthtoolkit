@@ -1,5 +1,5 @@
 <?php
-namespace Tools;
+namespace GarthFramework\Tools\View;
 /**
  * ptt借來用的純php樣版解析器
  */
@@ -12,18 +12,24 @@ class TemplateParser{
     }
 
     public static function getInstance(){
+
         if(self::$instance){
             return self::$instance;
         }
         self::$instance = new self;
+
         return self::$instance;
+
     }
 
-    public function view($source_page,$variable = '',$return = FALSE){
+    public function view($source_page, $variable = '', $return = FALSE){
+
         $variable = $this->_check_array($variable);
+
         foreach($variable as $key => $value){
             $$key = $value;
         }
+        
         if($return){
             ob_start();
                 eval("?>".file_get_contents($source_page)."<?php");
@@ -36,7 +42,7 @@ class TemplateParser{
         }
     }
 
-    public function _check_array($variable){
+    private function _check_array($variable){
         if($variable == null)
             return array();
         if(!is_array($variable)){

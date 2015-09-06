@@ -1,5 +1,5 @@
 <?php
-namespace GarthFramework\Request\Tools;
+namespace GarthFramework\Tools\Request;
 
 /**
  * ToolPostHandler
@@ -29,22 +29,35 @@ class PostHandler{
 
 	private static $instance;
 	///file_get_contents的路徑
-	public $file = null;
+	private static $target = null;
 	///HTTP METHOD
-	public $method = null;
+	private static $httpMethod = null;
 
 	private function __construct(){
-
-		$this->file = 'php://input';
-		$this->method = strtoupper(getenv('REQUEST_METHOD'));
 
 	}
 	/**
 	* @return Object 回傳PostHandler物件
 	*/
-	public static function getInstance(){
+	public static function getInstance($target = null, $httpMethod = null){
 
-		if(self::$instance){
+		//測試時會注入target, 如無注入則使用php://input
+		if(!$target){
+			self::$target = 'php://input';
+		}else{
+			self::$target = $target;
+		}
+
+		//測試時會注入httpmethod, 如無注入則會偵測server狀態
+		if(!$httpMethod){
+			self::$httpMethod = strtoupper(getenv('REQUEST_METHOD'));
+		}else{
+			self::$httpMethod = $httpMethod;
+		}
+
+		/* 單例模式運用 */
+		if(self::$instance instanceof \GarthFramework\Tools\Request\PostHandler){
+
 			return self::$instance;
 		}
 		self::$instance = new self;
@@ -58,30 +71,27 @@ class PostHandler{
 	 * @param String $method 手動指定http method，用於測試時的DI。
 	 * @return array 返回json_decode後的陣列或空陣列
 	 */
-	public function getJSONData($location = null, $method = null){
+	public function getJSONData(){
 
-		if ($location) {
-			$this->file = $location;
-		}
-		if ($method) {
-			$this->method = $method;
-		}
-		if ($this->method == 'POST') {
-			$res = file_get_contents($this->file, true);
+		if (self::$httpMethod == 'POST') {
+			$res = file_get_contents(self::$target, true);
 			if ($res) {
 			
 				return json_decode($res, true);
-			} else {
-			
-				return array();
-			}
+			} 
+
+			return array();
 		}
 
 	}
 
-	public function getPostData(){
+	public function getPostData($postdata = null){
 
-		return $_POST;
+		if($postdata){
+			$_POST = $postdata;
+		}
+
+		return (isset($_POST) AND !empty($_POST)) ? $_POST : null;
 	}
 
 }
