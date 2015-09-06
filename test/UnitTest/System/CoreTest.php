@@ -38,6 +38,11 @@ Class CoreTest extends PHPUnit_Framework_TestCase{
 		$this->assertEquals(true, $obj instanceof \GarthFramework\Tools\Request\ToolCurl);
 	}
 
+	public function testGetEncryptHandler(){
+		$obj = $this->core->getEncryptHandler();
+		$this->assertEquals(true, $obj instanceof \GarthFramework\Tools\EncryptHandler);
+	}
+
 	public function testgetTemplateParser(){
 
 		$obj = $this->core->getTemplateParser();

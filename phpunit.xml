@@ -13,6 +13,7 @@
     <file>test/UnitTest/Tools/TemplateParserTest.php</file>
     <file>test/UnitTest/Tools/PostHandlerTest.php</file>
     <file>test/UnitTest/Tools/SessionHandlerTest.php</file>
+    <file>test/UnitTest/Tools/EncryptHandlerTest.php</file>
   </testsuite>
 </testsuites>
 </phpunit>

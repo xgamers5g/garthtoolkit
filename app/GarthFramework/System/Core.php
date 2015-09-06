@@ -17,6 +17,7 @@ use GarthFramework\Tools\Request\PostHandler;
 use GarthFramework\Tools\Request\ToolCurl;
 use GarthFramework\Tools\View\TemplateParser;
 use GarthFramework\Tools\SessionHandler;
+use GarthFramework\Tools\EncryptHandler;
 
 class Core{
 
@@ -62,6 +63,12 @@ class Core{
 	public function getSessionHandler(){
 
 		return SessionHandler::getInstance();	
+
+	}
+
+	public function getEncryptHandler(){
+
+		return EncryptHandler::getInstance();
 
 	}
 
