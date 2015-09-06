@@ -1,0 +1,16 @@
+<phpunit
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://schema.phpunit.de/4.0/phpunit.xsd"
+         backupGlobals="true"
+         backupStaticAttributes="true"
+         bootstrap="unittest/entry.php"
+         colors="true">
+<testsuites>
+  <testsuite name="system">
+    <file>unittest/CustomerAdmin/UnitTest/System/CoreTest.php</file>
+    <file>unittest/CustomerAdmin/UnitTest/Model/AdminCommunityModelTest.php</file>
+    <file>unittest/CustomerAdmin/UnitTest/Tools/TemplateParserTest.php</file>
+    <file>unittest/CustoemrAdmin/UnitTest/Tools/PostHandlerTest.php</file>
+  </testsuite>
+</testsuites>
+</phpunit>

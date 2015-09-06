@@ -1,0 +1,27 @@
+[
+    {
+        "name": "garth/Router",
+        "version": "dev-feature/phparray",
+        "version_normalized": "dev-feature/phparray",
+        "source": {
+            "type": "git",
+            "url": "http://xgamers5g:Asdf*147@gitlab.xgamers5g.com/xgamers5g/garthrouter.git",
+            "reference": "e03060aae39aa826c73343f578ac496eb09cd1ea"
+        },
+        "time": "2015-08-30 00:03:59",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Router\\": "src/Router/"
+            }
+        },
+        "authors": [
+            {
+                "name": "garth",
+                "email": "xgamers5g@hotmail.com"
+            }
+        ],
+        "description": "Garth Router For IoC/DI"
+    }
+]

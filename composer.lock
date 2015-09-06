@@ -1,0 +1,43 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "92eae3a16a07dd0460d14e4bca7ccc79",
+    "packages": [],
+    "packages-dev": [
+        {
+            "name": "garth/Router",
+            "version": "dev-feature/phparray",
+            "source": {
+                "type": "git",
+                "url": "http://xgamers5g:Asdf*147@gitlab.xgamers5g.com/xgamers5g/garthrouter.git",
+                "reference": "e03060aae39aa826c73343f578ac496eb09cd1ea"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Router\\": "src/Router/"
+                }
+            },
+            "authors": [
+                {
+                    "name": "garth",
+                    "email": "xgamers5g@hotmail.com"
+                }
+            ],
+            "description": "Garth Router For IoC/DI",
+            "time": "2015-08-30 00:03:59"
+        }
+    ],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "garth/router": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
