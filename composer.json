@@ -7,14 +7,7 @@
             "email": "xgamers5g@hotmail.com"
         }
     ],
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "http://xgamers5g:Asdf*147@gitlab.xgamers5g.com/xgamers5g/garthrouter.git"
-        }
-    ],
     "require-dev": {
-        "garth/Router": "feature/phparray-dev",
         "twig/twig": "1.x-dev"
     },
     "autoload": {
