@@ -167,6 +167,28 @@ class ToolCurl
 		return $headers;
 	}
 
+	public static function getCookies($response)
+	{
+		$cookies = array();
+		$header_array = explode("\r\n", $response);
+		foreach($header_array as $k => $line){
+			if(strpos($line, 'Set-Cookie') > -1){
+				array_push($cookies, $line);
+			}
+		}
+
+		$returnValue = [];
+		foreach($cookies as $cookie){
+			$tmp = explode("Set-Cookie: ", $cookie)[1];
+			$tmp = explode(";", $tmp)[0];
+
+			list ($key, $value) = explode('=', $tmp, 2);
+			$returnValue[$key] = $value;
+		}
+
+		return $returnValue;
+	}
+
 	public function __destruct(){
 
 		if (php_sapi_name() == "cli") {
